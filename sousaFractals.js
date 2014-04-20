@@ -6,9 +6,9 @@ var GRID_MAX_SIZE = 10;
 
 angular.module('sousaModule', [])
     .controller('appController', ['$scope', '$document', function ($scope, $document) {
-        $scope.int_horizontalTiles = 3;
-        $scope.int_verticalTiles = 3;
-        $scope.int_iterations = 3;
+        $scope.int_horizontalTiles = 2;
+        $scope.int_verticalTiles = 2;
+        $scope.int_iterations = 4;
         $scope.int_blockSize = 5;
         $scope.color_empty = "#ffffff";
         $scope.color_full = "#000000";
@@ -34,6 +34,12 @@ angular.module('sousaModule', [])
         };
 
         $scope.resetGrid();
+
+        // Set initial values for grid to draw a Sierpinski Triangle
+        $scope.grid[0][0] = true;
+        $scope.grid[0][1] = true;
+        $scope.grid[1][0] = true;
+
 
         $scope.toggleTile = function (i, j) {
             $scope.grid[i][j] = !$scope.grid[i][j];
